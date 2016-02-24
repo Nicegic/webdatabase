@@ -1,10 +1,156 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=9">
+        <title> musicStream</title>
+
+        <style>
+            html{
+                font-family: cursive;
+            }
+
+            #container {
+                background-color: black;
+                background-image: url("login.png");
+                height: 100%;
+                width: 100%;
+            }
+
+            #login_box{
+                float:left;
+                clear:both;
+                margin-top:30px;
+                margin-left:25%;
+                height:250px;
+                width:211px;
+                border:1px solid #CCC;
+                border-radius:10px;
+            }
+
+            #loginarea{       
+                float:right;
+                width: 50%;
+                height:50%;
+                margin-left:auto;
+                margin-right:auto;
+                margin-top: 10%;
+            } 
+
+            p{
+                text-align: center;
+                color: white;
+            }
+
+            .box{
+                margin-left:10%;
+            }
+            #discarea{
+                float:left;
+                width:50%;	
+                z-index: 0;
+            }	
+            #alien{
+                position: absolute;
+                margin-left:210px;
+                margin-top:210px;
+                z-index: 1;
+            }
+
+            .bu {
+                float: left;
+                display: inline-block;
+                width: 62px;
+                background-color: orange;
+                border: none;
+                text-align: center;
+                font-size: 10px;
+                padding: 5px;
+                transition: all 0.8s;
+                cursor: pointer;
+                margin: 10%;
+            }
+            .bu span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.8s;
+            }
+            .bu span:after {
+                content: '>>';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.8s;
+            }
+            .bu:hover span {
+                padding-right: 15px;
+            }
+            .bu:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+        </style>
+        <script>
+// variablen, die man für die Funktion benötigt
+            var looper;
+            var degrees = 0;
+// Umdrehungen für jeden Browser
+            function rotateAnimation(el, speed) {
+                var elem = document.getElementById(el);
+                if (navigator.userAgent.match("Chrome")) {
+                    elem.style.WebkitTransform = "rotate(" + degrees + "deg)";
+                } else if (navigator.userAgent.match("Firefox")) {
+                    elem.style.MozTransform = "rotate(" + degrees + "deg)";
+                } else if (navigator.userAgent.match("MSIE")) {
+                    elem.style.msTransform = "rotate(" + degrees + "deg)";
+                } else if (navigator.userAgent.match("Opera")) {
+                    elem.style.OTransform = "rotate(" + degrees + "deg)";
+                } else {
+                    elem.style.transform = "rotate(" + degrees + "deg)";
+                }
+                looper = setTimeout('rotateAnimation(\'' + el + '\',' + speed + ')', speed);
+                degrees++;
+                if (degrees > 359) {
+                    degrees = 1;
+                }
+
+            }
+        </script>
+
     </head>
+
     <body>
-        <h1>Hello World!</h1>
+        <div id="container">
+            <!-- die CD, Hinweis: rotateAnimation (bild das man bewegen möchte, Schneligkeit (je kleiner, desto schneller)) -->
+            <div id="discarea"><img id="bild" src="disc1.png" ><script>rotateAnimation("bild", 10);</script></div>
+            <!-- Einfügen des Logos -->
+            <div id="alien" ><img id="bild2" src="logo.png" width="100" height="100"></div>
+
+            <div id="loginarea">		    
+                <div id="login_box">
+                    <form action="welcome">
+
+                        <!-- Username kann maximal 30 Zeichen enthalten -->
+                        <p> User:</p>
+                        <input type="text" class="box"  name="username" maxlength="30" required>
+
+                        <!-- Password kann maximal 20 Zeichen enthalten -->	
+                        <p> Password: </p>
+                        <input type="password" name="password" class="box" maxlength="20" required><br>
+
+                        <!-- Die Buttons -->
+                        <button class="bu" type="button"><span>Login</span></button>
+                        <button class="bu" type="button"><span>Sign up</span></button>
+
+                        <!-- Link für ohne Anmeldung -->
+                        <p><a href="mockup.html"><font color="white">Weiter ohne Anmeldung</font></a></p>
+
+
+                    </form>
+                </div> 
+            </div>
+        </div>
     </body>
 </html>
