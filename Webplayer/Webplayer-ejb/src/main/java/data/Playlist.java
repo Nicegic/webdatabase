@@ -5,11 +5,16 @@
  */
 package data;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
 /**
  *
  * @author leonmelnik
  */
-public class Playlist {
+@Entity
+public class Playlist implements Serializable{
+    @Id @GeneratedValue
     public int id;
     public int songID;
     public String username;
