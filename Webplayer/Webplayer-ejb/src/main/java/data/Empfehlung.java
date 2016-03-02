@@ -5,11 +5,13 @@
  */
 package data;
 
+import java.io.Serializable;
+
 /**
  *
  * @author leonmelnik
  */
-public class Empfehlung {
+public class Empfehlung implements Serializable{
     
     public Empfehlung(){
         
