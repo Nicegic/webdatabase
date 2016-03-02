@@ -5,11 +5,13 @@
  */
 package data;
 
+import java.io.Serializable;
+
 /**
  *
  * @author leonmelnik
  */
-public class Suche {
+public class Suche implements Serializable {
     
     public Suche(){
         

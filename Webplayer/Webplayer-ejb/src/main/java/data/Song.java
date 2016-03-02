@@ -5,11 +5,13 @@
  */
 package data;
 
+import java.io.Serializable;
+
 /**
  *
  * @author leonmelnik
  */
-public class Song {
+public class Song implements Serializable{
     public int id;
     public String name;
     public String interpret;
