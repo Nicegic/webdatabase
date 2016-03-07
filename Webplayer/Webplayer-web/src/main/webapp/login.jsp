@@ -12,9 +12,9 @@
         <title>Login</title>
     </head>
     <body>
-        <h1>Here is the login page coming....</h1>
-        <form action="welcome">
-            <input type="submit"/>
+        <h1>Hallo, <%= request.getParameter("username")%> </h1>
+        <form action="index.html">
+            <button type="submit"><span>zurück</span></button>
         </form>
     </body>
 </html>
