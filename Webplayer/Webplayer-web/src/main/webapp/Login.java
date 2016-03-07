@@ -4,9 +4,15 @@
  * and open the template in the editor.
  */
 
-import javax.*;
+
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -23,7 +29,7 @@ public class Login extends HttpServlet {
         String n = request.getParameter("username");
         String p = request.getParameter("password");
         
-        if (LoginDao.validate(n, p)){
+        /*if (LoginDao.validate(n, p)){
             RequestDispatcher rd = request.getRequestDispatcher("home");
             rd.forward(request, response);
         }
@@ -31,8 +37,8 @@ public class Login extends HttpServlet {
         else {
             out.println("Wrong password or username");
             RequestDispatcher rd = request.getRequestDispatcher("index.html");
-            rd.include(request, respone);
-        }
+            rd.include(request, response);
+        }*/
         
         out.close();
         
