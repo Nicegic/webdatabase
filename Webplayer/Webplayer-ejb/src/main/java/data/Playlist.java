@@ -22,4 +22,26 @@ public class Playlist implements Serializable{
     
     public Playlist(){}
     
+    //get-Methoden
+    public int getSongID(){
+        return songID;
+    }
+    public String getUsername(){
+        return username;
+    }
+    public String getName(){
+        return name;
+    }
+    //set-Methoden
+    public void setSongID(int songID){
+        this.songID = songID;
+    }
+    public void setUsername(String username){
+        this.username = username;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    
+    
 }
