@@ -20,7 +20,6 @@ public class Playlist implements Serializable{
     public String username;
     public String name;
     
-    public Playlist(String name){
-        this.name = name;
-    }
+    public Playlist(){}
+    
 }
