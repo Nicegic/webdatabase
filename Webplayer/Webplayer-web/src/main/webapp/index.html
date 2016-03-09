@@ -159,7 +159,7 @@
                 left: 0;
             }
         </style>
-        <script>
+        <script type = "application/javascript">
 // variablen, die man für die Funktion benötigt
             var looper;
             var degrees = 0;
@@ -185,13 +185,45 @@
 
             }
             function load_sing_up(){
-                var user = "<p> Username:</p><form><input type='text' name='username' class='boxnew' maxlength='30' required></form>";
-                var passwort = "<p> Passwort: </p><form><input type='passwort' name='passwort' class='boxnew' maxlength='20' required></form>";
-                var email = "<p> E-mail: </p><form><input type='email' class ='boxnew' name='email'></form>";
-                var zuruck ="<button onclick ='zuruck();' class='buttonsnew groesseneuebuttons' type='button'><span>Zurück</span></button>";
-                var speichern = "<button class='buttons groesseneuebuttons' type='button'><span>Daten speichern</span></button>";
-            document.getElementById("loginarea").innerHTML ="<div id = 'login_box2'>" + user + passwort + email + zuruck + speichern + "</div"; 
-    };
+            var data_file = "JSONlogin.json";
+            var http_request = new XMLHttpRequest();
+            try{
+               // Opera 8.0+, Firefox, Chrome, Safari
+               http_request = new XMLHttpRequest();
+            }catch (e){
+               // Internet Explorer Browsers
+               try{
+                  http_request = new ActiveXObject("Msxml2.XMLHTTP");
+					
+               }catch (e) {
+				
+                  try{
+                     http_request = new ActiveXObject("Microsoft.XMLHTTP");
+                  }catch (e){
+                     // Something went wrong
+                     alert("Your browser broke!");
+                     return false;
+                  }
+					
+               } 
+                }
+			
+            http_request.onreadystatechange = function(){
+			
+              if (http_request.readyState ==4){
+                  // Javascript function JSON.parse to parse JSON data
+                  var jsonObj = JSON.parse(http_request.responseText);
+
+                  // jsonObj variable now contains the data structure and can
+                  // be accessed as jsonObj.name and jsonObj.country.
+                  document.getElementById("loginarea").innerHTML = jsonObj.login;
+               }
+            }
+			
+            http_request.open("GET", data_file, true);
+            http_request.send();
+
+            };
 
             function zuruck(){
                 var user = "<p> User:</p><form><input type='text' class='box'  name='username' maxlength='30' required></form>";
@@ -199,9 +231,43 @@
                 var buttons ="<button class='buttons' type='button'><span>Login</span></button><button onclick='load_sing_up();' class='buttons' type='button' ><span>Sign up</span></button>";
                 var ohneAnmeldung ="<p><a href='mockup.html'><font color='white'>Weiter ohne Anmeldung</font></a></p>";       
 
-                        
+            var data_file = "JSONlogin.json";
+            var http_request = new XMLHttpRequest();
+            try{
+               // Opera 8.0+, Firefox, Chrome, Safari
+               http_request = new XMLHttpRequest();
+            }catch (e){
+               // Internet Explorer Browsers
+               try{
+                  http_request = new ActiveXObject("Msxml2.XMLHTTP");
+					
+               }catch (e) {
+				
+                  try{
+                     http_request = new ActiveXObject("Microsoft.XMLHTTP");
+                  }catch (e){
+                     // Something went wrong
+                     alert("Your browser broke!");
+                     return false;
+                  }
+					
+               } 
+                }
+			
+            http_request.onreadystatechange = function(){
+			
+              if (http_request.readyState ==4){
+                  // Javascript function JSON.parse to parse JSON data
+                  var jsonObj = JSON.parse(http_request.responseText);
 
-                document.getElementById("loginarea").innerHTML = "<div id = 'login_box'>" + user + password + buttons + ohneAnmeldung + "</div>";
+                  // jsonObj variable now contains the data structure and can
+                  // be accessed as jsonObj.name and jsonObj.country.
+                  document.getElementById("loginarea").innerHTML = jsonObj.sing_up;
+               }
+            }
+			
+            http_request.open("GET", data_file, true);
+            http_request.send();
             }
         </script>
 
@@ -220,7 +286,8 @@
         </div>
             <div id="loginarea">		    
                 <div id="login_box">
-                    <form action="welcome" method="post">
+                    <form action="welcome" method="post"></form>
+
 
                         <!-- Username kann maximal 30 Zeichen enthalten -->
                         <p> User:</p>
@@ -231,8 +298,8 @@
                         <form><input type="password" name="password" class="box" maxlength="20" required><br></form>
 
                         <!-- Die Buttons -->
-                        <button class="buttons" type="button"><span>Login</span></button>
-                        <button onclick="load_sing_up();" class="buttons" type="button" ><span>Sign up</span></button>
+                        <form><button class="buttons" type="button"><span>Login</span></button></form>
+                        <form><button onclick="load_sing_up();" class="buttons" type="button"><span>Sign up</span></button></form>
 
                         <!-- Link für ohne Anmeldung -->
                         <p><a href="mockup.html"><font color="white">Weiter ohne Anmeldung</font></a></p>
