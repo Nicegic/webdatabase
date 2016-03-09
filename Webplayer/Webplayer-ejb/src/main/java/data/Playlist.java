@@ -5,19 +5,43 @@
  */
 package data;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  *
  * @author leonmelnik
  */
-public class Playlist implements Serializable {
+@Entity
+public class Playlist implements Serializable{
+    @Id @GeneratedValue
     public int id;
     public int songID;
     public String username;
     public String name;
     
-    public Playlist(String name){
+    public Playlist(){}
+    
+    //get-Methoden
+    public int getSongID(){
+        return songID;
+    }
+    public String getUsername(){
+        return username;
+    }
+    public String getName(){
+        return name;
+    }
+    //set-Methoden
+    public void setSongID(int songID){
+        this.songID = songID;
+    }
+    public void setUsername(String username){
+        this.username = username;
+    }
+    public void setName(String name){
         this.name = name;
     }
+    
+    
 }

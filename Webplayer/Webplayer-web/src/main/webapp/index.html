@@ -8,13 +8,13 @@
         <style>
             html{
                 font-family: cursive;
+                background-color: black;
+                background-image: url("login.png");
+                background-size: contain;
             }
 
             #container {
-                background-color: black;
-                background-image: url("login.png");
-                height: 100%;
-                width: 100%;
+
             }
 
             #login_box{
@@ -34,8 +34,19 @@
                 height:50%;
                 margin-left:auto;
                 margin-right:auto;
-                margin-top: 10%;
-            } 
+                margin-top:2%;
+            }
+            
+            #text{
+                background-color:white;
+                border-radius: 8px;
+                opacity:0.75;
+                margin-left:40%;
+                margin-right:2%;
+                margin-top: 1%;
+                padding: 1%;
+                text-align: left;
+            }
 
             p{
                 text-align: center;
@@ -53,7 +64,7 @@
             #alien{
                 position: absolute;
                 margin-left:210px;
-                margin-top:210px;
+                margin-top:10px;
                 z-index: 1;
             }
 
@@ -125,12 +136,16 @@
         <div id="container">
             <!-- die CD, Hinweis: rotateAnimation (bild das man bewegen möchte, Schneligkeit (je kleiner, desto schneller)) -->
             <div id="discarea"><img id="bild" src="disc1.png" ><script>rotateAnimation("bild", 10);</script></div>
+            <div id="text">
+                <h1>Willkommen bei SLAPMusic!</h1>
+                <h2>Bitte registriere dich, um Zugang zu allen Features zu erhalten!</h2>
+            </div>
             <!-- Einfügen des Logos -->
             <div id="alien" ><img id="bild2" src="logo.png" width="100" height="100"></div>
 
             <div id="loginarea">		    
                 <div id="login_box">
-                    <form action="welcome">
+                    <form action="welcome" method="post">
 
                         <!-- Username kann maximal 30 Zeichen enthalten -->
                         <p> User:</p>
@@ -141,14 +156,12 @@
                         <input type="password" name="password" class="box" maxlength="20" required><br>
 
                         <!-- Die Buttons -->
-                        <button class="bu" type="button"><span>Login</span></button>
-                        <button class="bu" type="button"><span>Sign up</span></button>
-
-                        <!-- Link für ohne Anmeldung -->
-                        <p><a href="mockup.html"><font color="white">Weiter ohne Anmeldung</font></a></p>
-
-
+                        <button class="bu" type="submit"><span>Login</span></button></form>
+                    <form action="welcome" method="get">
+                        <button class="bu"><span>Sign up</span></button>
                     </form>
+                    <!-- Link für ohne Anmeldung -->
+                    <p><a href="mockup.html"><font color="white">Weiter ohne Anmeldung</font></a></p>
                 </div> 
             </div>
         </div>
