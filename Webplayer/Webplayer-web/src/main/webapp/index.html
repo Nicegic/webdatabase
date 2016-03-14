@@ -286,24 +286,25 @@
         </div>
             <div id="loginarea">		    
                 <div id="login_box">
-                    <form action="welcome" method="post"></form>
+                    <form action="welcome" method="post">
 
 
                         <!-- Username kann maximal 30 Zeichen enthalten -->
                         <p> User:</p>
-                        <form><input type="text" class="box"  name="username" maxlength="30" required></form>
+                        <input type="text" class="box"  name="username" maxlength="30" required>
 
                         <!-- Password kann maximal 20 Zeichen enthalten -->	
                         <p> Password: </p>
-                        <form><input type="password" name="password" class="box" maxlength="20" required><br></form>
+                        <input type="password" name="password" class="box" maxlength="20" required><br>
 
                         <!-- Die Buttons -->
-                        <form><button class="buttons" type="button"><span>Login</span></button></form>
-                        <form><button onclick="load_sing_up();" class="buttons" type="button"><span>Sign up</span></button></form>
-
+                        <button class="buttons" type="submit"><span>Login</span></button>
+                        <button onclick="load_sing_up();" class="buttons" type="button"><span>Sign up</span></button>
                         <!-- Link für ohne Anmeldung -->
                         <p><a href="mockup.html"><font color="white">Weiter ohne Anmeldung</font></a></p>
-            </div> 
+                                
+                           </form>
+                </div> 
          </div>
     </body>
 </html>
