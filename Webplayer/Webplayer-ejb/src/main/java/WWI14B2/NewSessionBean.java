@@ -15,7 +15,7 @@ import javax.ejb.LocalBean;
 @LocalBean
 public class NewSessionBean {
 
-    public void businessMethod() {
+    public void businessMethod() {   
     }
 
     // Add business logic below. (Right-click in editor and choose
